@@ -1,9 +1,9 @@
-# PYTHON QUIZ
-# FINISHED: 08.07.26
+# Python Quiz
+
 
 questions = [
     {
-        "question": "What is Python?",
+        "question": "What is Python primarily known as?",
         "options": [
             "A. A snake",
             "B. A programming language",
@@ -413,7 +413,7 @@ questions = [
         "answer": "C"
     },
     {
-        "question": "Which keyword creates an object?",
+        "question": "How do you create an object from a class?",
         "options": [
             "A. object",
             "B. new",
@@ -504,11 +504,14 @@ questions = [
     }
 ]
 
+
 def start_quiz():
     print("\n🐍 PYTHON QUIZ started!\n")
 
+    # Keep track of the number of correct answers.
     score = 0
 
+    # Process each question and its answer options.
     for question in questions:
         print("\n" + "=" * 40)
         print(question["question"])
@@ -517,33 +520,40 @@ def start_quiz():
         for option in question["options"]:
             print(option)
 
+        # Normalize the user's input so lowercase answers are accepted as well.
         answer = input("Enter your answer (A/B/C/D): ").upper()
 
         if answer == question["answer"]:
-            print("✅CORRECT!")
+            print("✅ CORRECT!")
             score += 1
         else:
-            print("❌INCORRECT!")
+            print("❌ INCORRECT!")
             print(f"The correct answer is {question['answer']}!")
 
     print("=" * 40)
     print("PYTHON QUIZ IS FINISHED!")
     print("=" * 40)
 
-       
-
+    # Use len() so the total number of questions stays dynamic if the quiz is changed.
     print(f"Your score is {score}/{len(questions)}")
-    percentage = score /len(questions) * 100
+
+    # Convert the raw score into a percentage for easier performance evaluation.
+    percentage = score / len(questions) * 100
     print(f"Percentage: {percentage:.1f}%")
 
+    # Give feedback based on the final percentage.
     if percentage >= 90:
-        print("🏆 Execellent!")
+        print("🏆 Excellent!")
+
     elif percentage >= 70:
         print("😍 Good job!")
+
     elif percentage >= 50:
         print("🙂 Good! Keep practicing!")
+
     else:
         print("📚😘 Don't give up! Keep learning!")
+
 
 print("=" * 35)
 print("🐍 Welcome to PYTHON QUIZ!")
@@ -554,12 +564,13 @@ print("2. Exit")
 
 choice = input("Enter your option (1 / 2): ")
 
+# Start the quiz only when the user selects option 1.
 if choice == "1":
     print("Quiz is starting...")
     start_quiz()
 
 elif choice == "2":
-    print("Good Bye!!")
+    print("Goodbye!")
 
 else:
     print("Invalid option!")
